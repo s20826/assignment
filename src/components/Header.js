@@ -10,6 +10,7 @@ export default function Header() {
                     }}>
             <Typography noWrap href="/"
                         sx={{
+                            fontFamily: 'Lato-Black',
                             fontSize: {xs: '29.35px', sm: '34.1px'},
                             ml:{xs: '0', sm: '66.5px'},
                             mt:{xs:'2px', sm:'0px'}

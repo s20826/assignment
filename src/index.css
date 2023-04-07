@@ -11,3 +11,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+@font-face {
+  font-family: "Lato-Black";
+  src: local("Lato-Black"),
+  url("./fonts/Lato-Black.ttf") format("truetype");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Lato-Bold";
+  src: local("Lato-Bold"),
+  url("./fonts/Lato-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Lato-Regular";
+  src: local("Lato-Regular"),
+  url("./fonts/Lato-Regular.ttf") format("truetype");
+  font-weight: bold;
+}
