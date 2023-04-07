@@ -2,6 +2,7 @@ import React from "react";
 import Box from '@mui/material/Box';
 import Typography from "@mui/material/Typography";
 import {StyledTypography} from "../styles/style";
+import EpisodesList from "./EpisodesList";
 import {getEpisodesApiCall} from "../api/apiCall";
 
 class Episodes extends React.Component {
@@ -45,7 +46,7 @@ class Episodes extends React.Component {
         } else if (!isLoaded) {
             content = <p>Loading...</p>
         } else {
-            console.log(data)
+            content = <EpisodesList episodes={data}></EpisodesList>
         }
 
         return (
@@ -92,6 +93,7 @@ class Episodes extends React.Component {
                              sx={{ml: {xs: 3.2, sm: 0}}}>
                         </Box>
                     </Box>
+                    {content}
                 </Box>
             </Box>
         )
