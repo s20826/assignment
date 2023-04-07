@@ -1,6 +1,7 @@
-import {BrowserRouter} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import React from 'react';
 import Header from "./components/Header";
+import Episodes from "./components/Episodes";
 
 class App extends React.Component {
 
@@ -8,6 +9,9 @@ class App extends React.Component {
     return (
         <BrowserRouter>
             <Header/>
+            <Routes>
+                <Route path="/" element={<Episodes/>}/>
+            </Routes>
         </BrowserRouter>
     );
   }

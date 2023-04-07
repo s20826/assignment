@@ -1,5 +1,6 @@
 import { styled} from '@mui/material/styles';
 import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
 
 export const StyledGrid = styled(Grid)(({ theme }) => ({
 
@@ -13,4 +14,14 @@ export const StyledGrid = styled(Grid)(({ theme }) => ({
 
     }
 }));
+export const StyledTypography = styled(Typography)(({ theme }) => ({
+    [theme.breakpoints.up('xs')]: {
+        fontSize: '34.26px',
+        lineHeight:'37px'
+    },
+    [theme.breakpoints.up('sm')]: {
+        fontSize: '58.9px',
+        lineHeight:'53px'
+    },
 
+}));
