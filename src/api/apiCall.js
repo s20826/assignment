@@ -1,20 +1,16 @@
-import {gql} from "@apollo/client";
-import {client} from "../index";
+import {gql} from '@apollo/client';
 
-export function getEpisodesApiCall() {
-    return client.query({
-        query: gql`
-        query {
-            episodes( filter: { episode: "S04" }) {
-                results {
-                    episode 
-                    name
-                    air_date
-                }
-                info {
-                    count
-                }
+export const GET_EPISODES = gql`
+    query {
+        episodes( filter: { episode: "S04" }) {
+            results {
+                episode 
+                name
+                air_date
             }
-        }`
-    });
-}
+            info {
+                count
+            }
+        }
+    }`;
+

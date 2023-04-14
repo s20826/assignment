@@ -4,8 +4,8 @@ import Typography from '@mui/material/Typography';
 import {Divider, List, ListItem} from "@mui/material";
 
 export default function EpisodesList(props) {
-    const data = props.episodes.results
-    const count = props.episodes.info.count
+    const data = props.episodes.episodes.results
+    const count = props.episodes.episodes.info.count
 
     return (
         <List

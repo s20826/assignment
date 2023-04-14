@@ -2,54 +2,21 @@ import React from "react";
 import Box from '@mui/material/Box';
 import Typography from "@mui/material/Typography";
 import {StyledTypography} from "../styles/style";
+import {useQuery} from '@apollo/client';
 import EpisodesList from "./EpisodesList";
-import {getEpisodesApiCall} from "../api/apiCall";
+import {GET_EPISODES} from "../api/apiCall";
 
-class Episodes extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            error: null,
-            isLoaded: false,
-            data: '',
-        }
+export default function Episodes() {
+    const {loading, error, data} = useQuery(GET_EPISODES);
+    let content;
+    if (error) {
+        content = <p>Error : {error.message}</p>
+    } else if (loading) {
+        content = <p>Loading...</p>
+    } else {
+        content = <EpisodesList episodes={data}></EpisodesList>
     }
-
-    fetchEpisodesList = () => {
-        getEpisodesApiCall()
-            .then(
-                (data) => {
-                    this.setState({
-                        isLoaded: true,
-                        data: data.data.episodes
-                    });
-                },
-                (error) => {
-                    console.log(error)
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    });
-                }
-            )
-    }
-
-    componentDidMount() {
-        this.fetchEpisodesList()
-    }
-
-    render() {
-        const {error, isLoaded, data} = this.state
-        let content;
-        if (error) {
-            content = <p>Error : {error.message}</p>
-        } else if (!isLoaded) {
-            content = <p>Loading...</p>
-        } else {
-            content = <EpisodesList episodes={data}></EpisodesList>
-        }
-
-        return (
+    return (
             <Box component={'main'}>
                 <Box
                     sx={{
@@ -97,6 +64,5 @@ class Episodes extends React.Component {
                 </Box>
             </Box>
         )
-    }
+
 }
-export default Episodes;
